@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Profile</title>
+  <style>
+    /* Global Styles */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    /*header {
+        background-color:rgb(67, 19, 72);
+      /*background: linear-gradient(120deg, #4e54c8, #8f94fb);
+      color: white;
+      text-align:left;
+      padding: 20px 20px;
+    }
+
+    /* Profile Slideshow 
+    .profile-pic {
+    text-align-last: left;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+       border: 4px solid white;
+      margin-bottom: 10px;
+      object-fit:cover;
+      transition: opacity 2s ease-in-out;
+    }
+
+    header h1 {
+      margin: 10px 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin: 5px 0;
+    }
+*/
+
+
+.header {
+  background-color: #4B004B; /* Your purple background */
+  color: white;
+  padding: 40px;
+   border-radius: 10px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Move text to top */
+}
+
+.text {
+  flex: 1;
+  text-align: left;
+}
+
+.text h1 {
+  font-size: 2.0em;
+  margin: 0;
+  margin-top: 0.1px;
+}
+
+.text p {
+  font-size: 1.2em;
+}
+
+.profile-pic {
+  flex: 0 0 auto;
+}
+
+.profile-pic img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border:4px solid white;
+  margin-bottom: 10px;
+  object-fit: cover;
+  transition: opacity 2s ease-in-out;
+}
+
+    nav {
+      background: #333;
+      padding: 12px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+     nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;               /* hidden initially */
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+
+    section.show {
+      opacity:5;
+      transform: translateY(0);
+    }
+
+    /* Left and Right Slide Animations */
+    .left {
+      transform: translateX(-100px);
+    }
+
+    .right {
+      transform: translateX(100px);
+    }
+
+    section.show.left {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    section.show.right {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    section h2 {
+      color: #4e54c8;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+    /* Certifications Section */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cert-item button {
+  background: #4e54c8;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cert-item button:hover {
+  background: #3a3f9f;
+}
+
+/* Resume Buttons */
+.btn {
+  display: inline-block;
+  background: #4e54c8;
+  color: white;
+  padding: 10px 15px;
+  margin-right: 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #3a3f9f;
+}
+
+/* Modal (Certificate Viewer) */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 2000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ff4444;
+}
+
+  </style>
+</head>
+<body>
+
+  <!--<header >
+    <img id="profilePic" class="profile-pic" src="https://s3.tradingview.com/userpics/36787126-xym5_big.png" alt=""C:\Users\GDSGR\.vscode\100.jpg"">
+    <h1>DATTA SAI GANESH REDDY GUDIBANDLA</h1>
+    <p>Web Developer | Designer | Learner</p>
+  </header>
+-->
+  <header class="header">
+  <div class="header-content">
+    <div class="text">
+      <h1>DATTA SAI GANESH REDDY GUDIBANDLA</h1>
+      <p>Web Developer | Full Stack Developer | Learner</p>
+    </div>
+    <div class="profile-pic">
+      <img  id="profilePic" src="100.jpg" alt=""100.jpg"">
+    </div>
+  </div>
+</header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">   Projects</a>
+    <a href="#certifications">  Certifications</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+    
+  </nav>
+
+  <section id="about" class="left">
+    <h2>About Me</h2>
+    <p>
+      Hi! I'm DATTA SAI GANESH REDDY, a passionate web developer interested in building 
+      clean and user-friendly websites. I enjoy learning new technologies  
+      and improving my coding skills.
+    </p>
+  </section>
+
+  <section id="skills" class="right">
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Web-development : </strong>HTML, CSS, JavaScript</li>
+      <li><strong>Programming Languages : </strong>Java, Python</li>
+      <li><strong>Databases : </strong>SQL</li>
+      <li><strong>Tools : </strong> VS Code, Git &  GitHub</li>
+      
+      <li><strong>Others : </strong>Problem Solving, Communication, Team Collaboration</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="left">
+    <h2>Projects</h2>
+    <p><strong>1.Portfolio Website:</strong> Built a responsive portfolio using HTML, CSS, and JavaScript.</p>
+    <p><strong>2.Intraday Options Caluculator:</strong> Developed a Frontend Languages project for Intraday Traders.</p>
+    <p><strong>3.Negative Index Based Tri-band Absorber For future Wireless Applications</strong></p>
+  </section>
+  <!-- Certifications Section -->
+<section id="certifications" class="left">
+  <h2>Certifications</h2>
+  <div class="cert-list">
+    <div class="cert-item">
+      <p><strong>Java Programming Certificate</strong></p>
+      <p>Received JAVA ELITE + SILVER from NPTEL with 82%.</p>
+      <a href="Programming In Java.pdf"target="_blank" class="btn">View Certificate</a>
+    </div>
+    <div class="cert-item">
+      <p><strong>Python Basics Certificate</strong></p>
+      <p>Completed PYTHON online certifications on Infosys Springboard. </p>
+      <button onclick="openCert('cert2.jpg')">View Certificate</button>
+    </div>
+    <div class="cert-item">
+      <p><strong>SQL</strong></p>
+      <p>SQL AND RELATIONAL DATABASES 101 provided by IBM. </p>
+      <a href="444 SQLIBM Certificate.png"target="_blank" class="btn">View Certificate</a>
+  
+    </div>
+  </div>
+</section>
+
+<!-- Resume Section -->
+<section id="resume" class="right">
+  <h2>Resume</h2>
+  <p>You can view or download my resume below:</p>
+  <a href="SaiGanesh_FullStackDeveloper_Resume.pdf" target="_blank" class="btn">View Resume</a>
+  <a href="SaiGanesh_FullStackDeveloper_Resume.pdf" download class="btn">Download Resume</a>
+</section>
+  <section id="contact" class="left">
+    <h2>Contact</h2>
+    <p>Gmail: <a href="#"> saiganesh0444@gmail.com</a></p>
+    <p>LinkedIn: <a href="www.linkedin.com/in/gudibandla-datta-sai-ganesh-reddy">linkedin.com</a></p>
+    <p>GitHub: <a href="#">github.com/yourusername</a></p>
+  </section>
+
+  <footer style="text-align: center;">
+    <p>&copy; 2026 GDSGR® | All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript for animations -->
+  <script>
+    // Scroll Animation using Intersection Observer
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Profile Photo Slideshow
+    const profilePic = document.getElementById("profilePic");
+    const images = [
+      //"https://tse4.mm.bing.net/th/id/OIP.M5w_6PA6HaPxvRKJ-LzOtQHaEi?rs=1&pid=ImgDetMain&o=7&rm=3", 
+      "https://www.shutterstock.com/image-vector/software-engineer-concept-web-design-260nw-2012624867.jpg",
+      "https://bsmedia.business-standard.com/_media/bs/img/article/2023-04/05/full/1680681795-9304.jpg?im=FeatureCrop,size=(826,465)"
+    ];
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      profilePic.style.opacity = 0; // fade out
+      setTimeout(() => {
+        profilePic.src = images[index];
+        profilePic.style.opacity = 1; // fade in
+      }, 2000);
+    }, 2000);
+  </script>
+
+</body>
+</html>
+
